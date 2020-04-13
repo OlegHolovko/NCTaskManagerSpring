@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title Page-->
+    <title>Список заданий : NCTaskManager</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="/assets/css/font-face.css" rel="stylesheet" media="all">
+    <link href="/assets/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="/assets/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="/assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="/assets/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="/assets/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="/assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="/assets/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="/assets/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="/assets/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="/assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="/assets/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <!-- Main CSS-->
+    <link href="/assets/css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                            { NCTask }
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li>
+                            <a href="/">
+                                <i class="fas fa-home"></i>Главная</a>
+                        </li>
+                        <li>
+                            <a href="/calendar">
+                                <i class="fas fa-calendar-alt"></i>Календарь</a>
+                        </li>
+                        <li class="active">
+                            <a href="/task">
+                                <i class="fas fa-list"></i>Список</a>
+                        </li>
+                        <li>
+                            <a href="/info">
+                                <i class="fas fa-info-circle"></i>Описание</a>
+                        </li>
+                        <li>
+                            <a href="/logs">
+                                <i class="fas fa-file-alt"></i>Логи</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                    <big><span class="text-warning">{</span> NCTaskManager <span class="text-warning">}</span></big>
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                                                <li>
+                            <a href="/">
+                                <i class="fas fa-home"></i>Главная</a>
+                        </li>
+                        <li>
+                            <a href="/calendar">
+                                <i class="fas fa-calendar-alt"></i>Календарь</a>
+                        </li>
+                        <li class="active">
+                            <a href="/task">
+                                <i class="fas fa-list"></i>Список</a>
+                        </li>
+                        <li>
+                            <a href="/info">
+                                <i class="fas fa-info-circle"></i>Описание</a>
+                        </li>
+                        <li>
+                            <a href="/logs">
+                                <i class="fas fa-file-alt"></i>Логи</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="col-lg-12">
+                            <div id="carouselExampleControls" class="carousel carousel-fade slide" data-ride="carousel" data-interval="3000">
+                                <div class="carousel-inner" id="ws-alerts">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- END HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+					    <div class="row">
+                            <div class="col-md-12">
+								<div class="overview-wrap" style="padding-bottom: 10px;">
+							        <h2 class="title-1">Список заданий</h2>
+                                    <a href="/task/create" class="btn btn-primary" style="color: white;">
+                                        <i class="zmdi zmdi-plus"></i> Добавить</a>
+								</div> 
+							</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="table-responsive table--no-card m-b-30">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+												<th>Статус</th>
+                                                <th>Дата начала</th>
+												<th>Дата окончания</th>
+                                                <th>Названия</th>
+                                                <th>Повтор</th>
+                                                <th class="text-right">Действия</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="task: ${tasks}">
+												<td th:switch="${task.active}">
+                                                    <i class="fas fa-check pl-2" th:case="true"></i>
+                                                </td>
+                                                <td th:text="${#temporals.format(task.startTime, 'dd-MM-yyyy HH:mm')}"></td>
+                                                <td th:text="${#temporals.format(task.endTime, 'dd-MM-yyyy HH:mm')}"></td>
+                                                <td th:text="${task.title}"></td>
+                                                <td th:switch="${task.repeated}">
+                                                    <i class="fas fa-check pl-2" th:case="true"></i>
+                                                </td>
+                                                <td class="text-right">
+												    <div class="table-data-feature">
+                                                        <a th:href="@{'/task/edit/' + ${task.id}}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <i class="zmdi zmdi-edit"></i>
+                                                        </a>
+                                                        <a th:href="@{'/task/delete/' + ${task.id}}"  class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </a>
+                                                    </div>
+												</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+							
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="copyright">
+                                    <p>Copyright © 2020 NCTaskManager</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="/assets/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="/assets/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="/assets/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="/assets/vendor/slick/slick.min.js">
+    </script>
+    <script src="/assets/vendor/wow/wow.min.js"></script>
+    <script src="/assets/vendor/animsition/animsition.min.js"></script>
+    <script src="/assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="/assets/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="/assets/vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="/assets/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="/assets/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="/assets/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="/assets/vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="/assets/js/main.js"></script>
+
+    <!-- Websocket -->
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+
+</body>
+
+</html>
+<!-- end document-->
