@@ -1,6 +1,8 @@
 package ua.edu.sumdu.j2se.holovko.tasks.controllers;
 
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,7 +18,8 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/task")
 public class TaskController {
-    final static Logger logger = Logger.getLogger(TaskController.class);
+
+    private static final Logger logger = LogManager.getLogger(TaskController.class);
 
     @GetMapping
     public String index(Model model) throws IOException {
