@@ -1,11 +1,11 @@
 **NCTaskManager**
 
-_Extended training project_
+_Extended variant of the training project_
 
 Used technologies:
 
-- Spring MVC
+- Spring MVC, Spring Security
 - ThymeLeaf
 - HTML, CCS
-- Javascript 
+- Javascript, Jquery 
 - Ajax
